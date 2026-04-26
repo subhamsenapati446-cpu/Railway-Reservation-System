@@ -68,7 +68,7 @@ public class RailwayAWT extends Frame implements ActionListener {
         try {
             Connection con = DBConnection.getConnection();
 
-            // BOOK TICKET
+            // BOOK
             if (e.getSource() == book) {
 
                 if (tfPNR.getText().isEmpty() || tfName.getText().isEmpty() || tfAge.getText().isEmpty()) {
@@ -86,10 +86,16 @@ public class RailwayAWT extends Frame implements ActionListener {
                 ps.setString(5, tfTrain.getText());
 
                 ps.executeUpdate();
-                ta.setText("✅ Ticket Booked Successfully!");
+                ta.setText("✅ Ticket Booked!");
+
+                // Clear fields
+                tfPNR.setText("");
+                tfName.setText("");
+                tfAge.setText("");
+                tfTrain.setText("");
             }
 
-            // VIEW TICKETS
+            // VIEW
             else if (e.getSource() == view) {
 
                 Statement st = con.createStatement();
@@ -108,7 +114,7 @@ public class RailwayAWT extends Frame implements ActionListener {
                 }
             }
 
-            // CANCEL TICKET
+            // CANCEL
             else if (e.getSource() == cancel) {
 
                 if (tfPNR.getText().isEmpty()) {

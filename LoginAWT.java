@@ -10,7 +10,6 @@ public class LoginAWT extends Frame implements ActionListener {
 
     LoginAWT() {
         setTitle("Railway Login");
-
         setLayout(new GridLayout(4,2,10,10));
 
         add(new Label("Username:"));
@@ -41,7 +40,6 @@ public class LoginAWT extends Frame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-
         try {
             Connection con = DBConnection.getConnection();
 
@@ -66,5 +64,10 @@ public class LoginAWT extends Frame implements ActionListener {
         } catch (Exception ex) {
             msg.setText("Error: " + ex.getMessage());
         }
+    }
+
+    // ✅ MAIN METHOD (FIX)
+    public static void main(String[] args) {
+        new LoginAWT();
     }
 }
